@@ -1,5 +1,5 @@
 import pytest
-from clients.post_req import PostReq
+from clients.endpoints.post_req import PostReq
 
 
 @pytest.fixture(scope="session")
