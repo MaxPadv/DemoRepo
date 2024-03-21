@@ -11,8 +11,8 @@ from clients.asserts.assert_post import PostAsserts
 @allure.label("api")
 class TestPostDemo:
     @allure.description("Post запрос")
-    @pytest.mark.parametrize("data", [{"data": "<base64 string>"}, "23", ""])
-    def test_post_req(self, data, post_api: PostReq):
+    @pytest.mark.parametrize("json", [{"data": "<base64 string>"}, "23", "", 1])
+    def test_post_req(self, json, post_api: PostReq):
         with allure.step("Отправка пост запроса"):
-            r = post_api.send_request(data=data)
+            r = post_api.send_request(json=json)
             PostAsserts().check_post_r_pos(r)
